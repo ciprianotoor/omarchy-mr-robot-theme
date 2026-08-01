@@ -46,7 +46,17 @@ dotfiles está en el repositorio principal:
 ### Actualizar o quitar
 
 Para actualizar la copia instalada, usa el menú `temasync` del repositorio de
-dotfiles o, desde la carpeta instalada, ejecuta `git pull --ff-only` y después:
+dotfiles. Ese menú no forma parte de este repositorio: el script y el alias
+viven en `DotfileArchOmarchyCipriano`. Después de clonar los dotfiles, recarga
+Zsh y ejecuta:
+
+```bash
+source ~/.zshrc
+temasync
+```
+
+Si solo instalaste este tema, desde la carpeta instalada ejecuta `git pull
+--ff-only` y después:
 
 ```bash
 omarchy theme refresh
