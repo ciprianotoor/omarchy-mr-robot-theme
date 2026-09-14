@@ -9,6 +9,28 @@ y recursos de terceros cuya licencia debe revisarse por separado.
 > instala Arch Linux, Omarchy, aplicaciones, fuentes ni el repositorio completo
 > de dotfiles. Haz una copia de seguridad antes de cambiar tu tema.
 
+## Compatibilidad de versiones
+
+La rama `master` es la versión activa y está actualizada para **Omarchy 4**.
+La versión anterior para Omarchy 3 se conserva en la etiqueta
+`omarchy-3.0.0`; no uses esa etiqueta en una instalación de Omarchy 4.
+
+Para instalar la versión actual de Omarchy 4:
+
+```bash
+omarchy theme install \
+  https://github.com/ciprianotoor/omarchy-mr-robot-theme.git
+```
+
+Para obtener explícitamente la versión histórica de Omarchy 3:
+
+```bash
+git clone --branch omarchy-3.0.0 --depth 1 \
+  https://github.com/ciprianotoor/omarchy-mr-robot-theme.git \
+  "$HOME/.config/omarchy/themes/mr-robot"
+omarchy theme set mr-robot
+```
+
 ## Requisitos técnicos
 
 Necesitas Omarchy funcionando sobre Arch Linux, Hyprland, Git y permisos de
