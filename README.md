@@ -11,42 +11,55 @@ y recursos de terceros cuya licencia debe revisarse por separado.
 
 ## Requisitos técnicos
 
-Necesitas una instalación funcional de Omarchy sobre Arch Linux, Hyprland,
-Git y permisos de usuario sobre `~/.config/omarchy/themes/`. No necesitas
-permisos de administrador para instalar el tema.
+Necesitas Omarchy funcionando sobre Arch Linux, Hyprland, Git y permisos de
+usuario sobre `~/.config/omarchy/themes/`. No requiere permisos de root.
 
-El tema puede configurar, cuando están instalados, Hyprland, Hyprlock, Kitty,
+Puede configurar, cuando estén instalados, Hyprland, Hyprlock, Kitty,
 Alacritty, Foot, Ghostty, Waybar, Walker, Mako, GTK, SwayOSD, btop, Cava,
-Chromium, VS Code y Neovim. Las aplicaciones que no tengas instaladas
-simplemente no recibirán la parte correspondiente del tema.
+Chromium, VS Code y Neovim. Si una aplicación no está instalada, simplemente
+no se aplica esa parte del tema. `mako.ini` usa `JetBrainsMono Nerd Font`; sin
+esa fuente se usará una alternativa.
 
-El archivo `mako.ini` usa `JetBrainsMono Nerd Font`; si esa fuente no está
-instalada, el sistema utilizará una fuente alternativa.
+## Instalación directa
 
-## Instalación directa con Omarchy
+Este tema tiene un repositorio independiente y puede instalarse con:
 
 ```bash
 omarchy theme install \
   https://github.com/ciprianotoor/omarchy-mr-robot-theme.git
 ```
 
-Omarchy clonará este repositorio directamente en
-`~/.config/omarchy/themes/mr-robot` y activará el tema.
+Omarchy clonará el repositorio independiente en
+`~/.config/omarchy/themes/mr-robot`. No combines esta instalación con el
+enlace simbólico de los dotfiles usando el mismo nombre: elige un método para
+evitar confusiones sobre qué copia está activa.
 
-Si tu versión de Omarchy no lo activa automáticamente, aplícalo manualmente:
+Si tu versión de Omarchy no lo activa automáticamente, ejecuta:
 
 ```bash
 omarchy theme set mr-robot
 omarchy theme refresh
 ```
 
-El tema no instala aplicaciones, fuentes, dependencias ni una instalación de
-Arch Linux u Omarchy. Tampoco modifica `~/.local/share/omarchy/`; esa ruta es
-administrada por Omarchy.
+El tema no instala aplicaciones, fuentes ni dependencias, y no modifica
+`~/.local/share/omarchy/`, que es una ruta administrada por Omarchy.
 
-El comando crea una copia Git independiente del repositorio de dotfiles. No
-uses también un enlace simbólico con el mismo nombre, porque una instalación
-puede reemplazar o dejar confusa la otra.
+## Instalación desde el repositorio de dotfiles
+
+```bash
+git clone git@github.com:ciprianotoor/DotfileArchOmarchyCiprianoV4.git
+cd DotfileArchOmarchyCiprianoV4
+ln -sfn "$PWD/.config/omarchy/themes/mr-robot" \
+  "$HOME/.config/omarchy/themes/mr-robot"
+omarchy theme set mr-robot
+```
+
+Para desarrollo local, el enlace puede existir sin activar el tema. Este
+repositorio no ejecuta comandos de aplicación automáticamente.
+
+El alias `temasync` pertenece al repositorio principal de dotfiles, no a este
+tema. Si instalaste solo el tema, ese alias no se crea automáticamente.
+Consulta el README principal para instalar el menú de sincronización.
 
 Para cambiar entre los fondos incluidos:
 
@@ -54,48 +67,9 @@ Para cambiar entre los fondos incluidos:
 omarchy theme bg next
 ```
 
-### Desarrollo local
-
-Si trabajas con una copia local del tema:
-
-```bash
-mkdir -p ~/.config/omarchy/themes
-ln -sfn "$PWD" ~/.config/omarchy/themes/mr-robot
-omarchy theme set mr-robot
-```
-
-Este repositorio contiene únicamente el tema. La configuración completa de
-dotfiles está en el repositorio principal:
-`DotfileArchOmarchyCipriano`.
-
-### Actualizar o quitar
-
-Para actualizar la copia instalada, usa el menú `temasync` del repositorio de
-dotfiles. Ese menú no forma parte de este repositorio: el script y el alias
-viven en `DotfileArchOmarchyCipriano`. Después de clonar los dotfiles, recarga
-Zsh y ejecuta:
-
-```bash
-source ~/.zshrc
-temasync
-```
-
-Si solo instalaste este tema, desde la carpeta instalada ejecuta `git pull
---ff-only` y después:
-
-```bash
-omarchy theme refresh
-```
-
-Para quitarlo, activa primero otro tema y comprueba la ruta antes de borrar:
-
-```bash
-omarchy theme set <otro-tema>
-ls -ld ~/.config/omarchy/themes/mr-robot
-```
-
-No borres `~/.local/share/omarchy/`; esa carpeta pertenece a la instalación de
-Omarchy y no a este tema.
+Para quitar el tema, activa primero otro tema y comprueba la ruta con
+`ls -ld ~/.config/omarchy/themes/mr-robot`. No borres
+`~/.local/share/omarchy/`, porque es una ruta administrada por Omarchy.
 
 ## Inspiración visual
 

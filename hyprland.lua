@@ -3,6 +3,6 @@ hl.config({
   group = { col = { border_active = "rgba(F2293Aee)", border_inactive = "rgb(30343A)" }, groupbar = { col = { active = "rgba(F2293Aff)", inactive = "rgba(111418dd)" }, text_color = "rgb(08090B)", text_color_inactive = "rgb(E7E9E7)" } },
   decoration = {
     rounding = 0,
-    shadow = { enabled = true, render_power = 4, range = 16, color = "rgba(00000080)" },
+    shadow = { enabled = true, render_power = 4, range = 24, color = "rgba(F2293A66)" },
   },
 })
