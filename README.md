@@ -89,6 +89,17 @@ Para cambiar entre los fondos incluidos:
 omarchy theme bg next
 ```
 
+## Capturas
+
+Estas capturas muestran el tema funcionando en Omarchy 4 con sus fondos,
+terminal, barra y reproductor multimedia:
+
+![Escritorio con el reproductor multimedia](screenshots/desktop-media.png)
+
+![Escritorio con visualizador de audio](screenshots/desktop-visualizer.png)
+
+![Terminal con el tema Mr. Robot](screenshots/terminal.png)
+
 Para quitar el tema, activa primero otro tema y comprueba la ruta con
 `ls -ld ~/.config/omarchy/themes/mr-robot`. No borres
 `~/.local/share/omarchy/`, porque es una ruta administrada por Omarchy.
